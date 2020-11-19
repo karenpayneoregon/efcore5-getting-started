@@ -12,6 +12,3 @@ Getting started with EF Core 5
   - Microsoft.Extensions.Configuration.Json
   - Microsoft.Extensions.Configuration.Binder
 
-# TechNet Wiki article
-
-TODO
