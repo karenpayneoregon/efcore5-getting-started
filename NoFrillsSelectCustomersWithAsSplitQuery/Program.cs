@@ -13,6 +13,8 @@ namespace NoFrillsSelectCustomersWithAsSplitQuery
         {
             List<CustomerEntity> customersAsync = await CustomerOperations.AllCustomersAsync();
             Console.WriteLine(customersAsync.Count);
+
+
             Console.ReadLine();
         }
     }
