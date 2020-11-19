@@ -2,6 +2,8 @@
 
 Getting started with EF Core 5
 
+**More coming**
+
 # Requires
 
 - The following [database script](https://gist.github.com/karenpayneoregon/9bdf1a7d5310ac1d562b2326d79d6038).
