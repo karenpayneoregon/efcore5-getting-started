@@ -20,8 +20,22 @@ namespace NorthEntityLibrary.Classes
 
             return await Task.Run(async () =>
             {
+
+                /*
+                 * C# 8
+                 * Using declarations
+                 * A using declaration is a variable declaration preceded by the using keyword.
+                 * It tells the compiler that the variable being declared should be disposed
+                 * at the end of the enclosing scope. 
+                 */
                 await using var context = new NorthwindContext();
 
+                /*
+                 * EF Core 5, although the single query remains the default, you have the option to
+                 * force the query to be split up with the AsSplitQuery method. Like the AsNoTracking
+                 * method, there's also a way to apply this to the context itself, not only particular
+                 * queries.
+                 */
                 List<CustomerEntity> customerItemsList = await context.Customers
                     .AsSplitQuery()
                     .Include(customer => customer.Contact)
@@ -31,6 +45,15 @@ namespace NorthEntityLibrary.Classes
                 return customerItemsList.OrderBy((customer) => customer.CompanyName).ToList();
             });
         }
+        /// <summary>
+        /// Customize customer query
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// Note use of .TagWith which can assist a DBA when monitoring
+        /// SQL say in SQL-Server Profiler or for a developer logging
+        /// from the DbContext.
+        /// </remarks>
         public static async Task<List<CustomerItem>> GetCustomersAsync()
         {
 
@@ -39,6 +62,7 @@ namespace NorthEntityLibrary.Classes
             return await Task.Run(async () =>
             {
                 await using var context = new NorthwindContext();
+
                 return await context.Customers.AsNoTracking()
                     .Include(customer => customer.Contact)
                     .ThenInclude(contact => contact.ContactDevices)
@@ -60,7 +84,8 @@ namespace NorthEntityLibrary.Classes
                         FirstName = customer.Contact.FirstName,
                         LastName = customer.Contact.LastName,
                         ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
-                        OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
+                        OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3)
+                            .PhoneNumber
                     })
                     .TagWith($"App name: {currentExecutable}")
                     .TagWith($"From: {nameof(CustomerOperations)}.{nameof(GetCustomersAsync)}")
@@ -79,7 +104,7 @@ namespace NorthEntityLibrary.Classes
         {
             using var file = new System.IO.StreamWriter($"{countryName}.txt");
 
-            int skipped = 0;
+            var skipped = 0;
 
             foreach (CustomerItem customerItem in customerItems)
             {
