@@ -11,22 +11,9 @@ namespace NoFrillsSelectCustomersWithAsSplitQuery
     {
         static async Task Main(string[] args)
         {
-            await Task.Delay(1);
             List<CustomerEntity> customersAsync = await CustomerOperations.AllCustomersAsync();
             Console.WriteLine(customersAsync.Count);
-            //Setup();
             Console.ReadLine();
-        }
-
-        static void Setup()
-        {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json");
-
-            var config = builder.Build();
-            var author = config.GetSection("database").Get<ApplicationSettings>();
-            Console.WriteLine();
         }
     }
 
