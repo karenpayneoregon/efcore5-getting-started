@@ -64,10 +64,18 @@ namespace NorthEntityLibrary.Contexts
                     $"Initial Catalog={applicationSettings.Catalog};" +
                     "Integrated Security=True";
 
-                optionsBuilder.UseSqlServer(connectionString)
-                    .EnableSensitiveDataLogging()
-                    .EnableDetailedErrors()
-                    .LogTo(_logStream.WriteLine);
+                if (applicationSettings.UsingLogging)
+                {
+                    optionsBuilder.UseSqlServer(connectionString)
+                        .EnableSensitiveDataLogging()
+                        .EnableDetailedErrors()
+                        .LogTo(_logStream.WriteLine);
+                }
+                else
+                {
+                    optionsBuilder.UseSqlServer(connectionString);
+                }
+
             }
         }
 
