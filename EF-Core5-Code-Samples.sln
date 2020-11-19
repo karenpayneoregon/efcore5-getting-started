@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{FC861BB8-6D8F-4D68-8AAF-49042E17A099}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFramework5North", "EntityFramework5North\EntityFramework5North.csproj", "{8C206CDF-DFAF-4806-AEED-1B800103AEEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AC5364DF-3D67-452B-93D5-18BC3A043F32}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C206CDF-DFAF-4806-AEED-1B800103AEEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C206CDF-DFAF-4806-AEED-1B800103AEEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C206CDF-DFAF-4806-AEED-1B800103AEEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C206CDF-DFAF-4806-AEED-1B800103AEEE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C206CDF-DFAF-4806-AEED-1B800103AEEE} = {FC861BB8-6D8F-4D68-8AAF-49042E17A099}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8A2F5BFA-D199-4113-926C-E74F9AEAAA7C}
+	EndGlobalSection
+EndGlobal
