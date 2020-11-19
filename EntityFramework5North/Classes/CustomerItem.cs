@@ -43,7 +43,8 @@ namespace NorthEntityLibrary.Classes
                     Country = customers.CountryIdentifierNavigation.Name,
                     ContactTypeIdentifier = customers.CountryIdentifier,
                     OfficePhoneNumber = customers.Contact.ContactDevices
-                        .FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3).PhoneNumber
+                        .FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3)
+                        .PhoneNumber
                 };
             }
         }

@@ -20,7 +20,8 @@ namespace NorthEntityLibrary.Classes
 
             return await Task.Run(() => context
                 .Countries
-                .AsNoTracking().ToListAsync());
+                .AsNoTracking()
+                .ToListAsync());
         }
 
         public static async Task<List<Countries>> CountriesWithSelectAsync()
@@ -29,7 +30,8 @@ namespace NorthEntityLibrary.Classes
 
             var countries = await Task.Run(() => context
                 .Countries
-                .AsNoTracking().ToListAsync());
+                .AsNoTracking()
+                .ToListAsync());
 
             countries.Insert(0, new Countries() {CountryIdentifier = -1, Name = "Select"});
 

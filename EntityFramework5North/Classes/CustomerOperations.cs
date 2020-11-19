@@ -21,6 +21,7 @@ namespace NorthEntityLibrary.Classes
             return await Task.Run(async () =>
             {
                 await using var context = new NorthwindContext();
+
                 List<CustomerEntity> customerItemsList = await context.Customers
                     .AsSplitQuery()
                     .Include(customer => customer.Contact)

@@ -8,6 +8,5 @@ namespace NorthEntityLibrary.Models
     public partial class Countries
     {
         public override string ToString() => Name;
-
     }
 }

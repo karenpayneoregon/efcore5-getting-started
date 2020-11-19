@@ -101,6 +101,7 @@ namespace NorthEntityLibrary.Contexts
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
+        #region Takes care of disposing stream used for logging
         public override void Dispose()
         {
             base.Dispose();
@@ -112,5 +113,6 @@ namespace NorthEntityLibrary.Contexts
             await base.DisposeAsync();
             await _logStream.DisposeAsync();
         }
+        #endregion
     }
 }
