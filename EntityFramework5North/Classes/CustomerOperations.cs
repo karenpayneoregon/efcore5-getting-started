@@ -84,7 +84,8 @@ namespace NorthEntityLibrary.Classes
                         FirstName = customer.Contact.FirstName,
                         LastName = customer.Contact.LastName,
                         ContactTitle = customer.ContactTypeIdentifierNavigation.ContactTitle,
-                        OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(contactDevices => contactDevices.PhoneTypeIdentifier == 3)
+                        OfficePhoneNumber = customer.Contact.ContactDevices.FirstOrDefault(
+                                contactDevices => contactDevices.PhoneTypeIdentifier == 3)
                             .PhoneNumber
                     })
                     .TagWith($"App name: {currentExecutable}")
