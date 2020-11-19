@@ -1,13 +1,22 @@
-﻿
-using System;
+﻿using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
+using NorthEntityLibrary.Classes;
 using NorthEntityLibrary.Models;
-using static System.Configuration.ConfigurationManager;
-
 
 namespace NorthEntityLibrary.Contexts
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <remarks>
+    /// See the following for logging
+    /// https://docs.microsoft.com/en-us/ef/core/logging-events-diagnostics/simple-logging#logging-to-a-file
+    /// </remarks>
     public partial class NorthwindContext : DbContext
     {
         public NorthwindContext()
@@ -34,19 +43,31 @@ namespace NorthEntityLibrary.Contexts
         public virtual DbSet<Shippers> Shippers { get; set; }
         public virtual DbSet<Suppliers> Suppliers { get; set; }
 
+        /// <summary>
+        /// For logging to file via .LogTo
+        /// </summary>
+        private readonly StreamWriter _logStream = new StreamWriter("ef-log.txt", append: true);
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
+
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json");
+
+                var config = builder.Build();
+                var applicationSettings = config.GetSection("database").Get<ApplicationSettings>();
+
                 var connectionString =
-                    $"Data Source={AppSettings["DatabaseServer"]};" +
-                    $"Initial Catalog={AppSettings["NorthWinCatalog"]};" +
+                    $"Data Source={applicationSettings.DatabaseServer};" +
+                    $"Initial Catalog={applicationSettings.Catalog};" +
                     "Integrated Security=True";
 
                 optionsBuilder.UseSqlServer(connectionString)
                     .EnableSensitiveDataLogging()
                     .EnableDetailedErrors()
-                    .LogTo(Console.WriteLine);
+                    .LogTo(_logStream.WriteLine);
             }
         }
 
@@ -71,5 +92,17 @@ namespace NorthEntityLibrary.Contexts
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public override void Dispose()
+        {
+            base.Dispose();
+            _logStream.Dispose();
+        }
+
+        public override async ValueTask DisposeAsync()
+        {
+            await base.DisposeAsync();
+            await _logStream.DisposeAsync();
+        }
     }
 }

@@ -22,6 +22,7 @@ namespace NorthEntityLibrary.Classes
             {
                 await using var context = new NorthwindContext();
                 List<CustomerEntity> customerItemsList = await context.Customers
+                    .AsSplitQuery()
                     .Include(customer => customer.Contact)
                     .Select(Customers.Projection)
                     .ToListAsync();
