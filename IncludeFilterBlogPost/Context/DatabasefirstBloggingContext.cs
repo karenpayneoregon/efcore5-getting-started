@@ -28,19 +28,7 @@ namespace IncludeFilter.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                var builder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json");
-
-                var config = builder.Build();
-                var applicationSettings = config.GetSection("database").Get<ApplicationSettings>();
-
-                var connectionString =
-                    $"Data Source={applicationSettings.DatabaseServer};" +
-                    $"Initial Catalog={applicationSettings.Catalog};" +
-                    "Integrated Security=True";
-
-                optionsBuilder.UseSqlServer(connectionString);
+                optionsBuilder.UseSqlServer(Helper.ConnectionString());
             }
         }
 
