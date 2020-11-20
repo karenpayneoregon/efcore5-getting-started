@@ -14,9 +14,8 @@ namespace ConfigurationHelper
         public static string ConnectionString()
         {
 
-            var config = InitConfig();
-
-            var applicationSettings = config.GetSection("database").Get<DatabaseSettings>();
+            var config = InitConfiguration();
+            var applicationSettings = InitOptions<DatabaseSettings>("database");
 
             var connectionString =
                 $"Data Source={applicationSettings.DatabaseServer};" +
@@ -29,7 +28,7 @@ namespace ConfigurationHelper
         /// Initialize ConfigurationBuilder
         /// </summary>
         /// <returns>IConfigurationRoot</returns>
-        private static IConfigurationRoot InitConfig()
+        private static IConfigurationRoot InitConfiguration()
         {
 
             var builder = new ConfigurationBuilder()
@@ -47,7 +46,7 @@ namespace ConfigurationHelper
         /// <returns>Instance of T</returns>
         public static T InitOptions<T>(string section) where T : new()
         {
-            var config = InitConfig();
+            var config = InitConfiguration();
             return config.GetSection(section).Get<T>();
         }
     }
