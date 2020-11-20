@@ -3,7 +3,7 @@
     /// <summary>
     /// Properties for setting up a connection string
     /// </summary>
-    public class ApplicationSettings
+    public class DatabaseSettings
     {
         public string DatabaseServer { get; set; }
         public string Catalog { get; set; }

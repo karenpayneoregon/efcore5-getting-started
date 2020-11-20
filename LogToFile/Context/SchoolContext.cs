@@ -41,10 +41,12 @@ namespace LogToFile.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
+
                 optionsBuilder.UseSqlServer(Helper.ConnectionString())
                     .EnableSensitiveDataLogging()
                     .EnableDetailedErrors()
                     .LogTo(_logStream.WriteLine);
+
             }
         }
 
