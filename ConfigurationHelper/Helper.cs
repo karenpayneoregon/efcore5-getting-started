@@ -1,8 +1,7 @@
 ﻿using System.IO;
-using LogToFile.Classes;
 using Microsoft.Extensions.Configuration;
 
-namespace LogToFile.Context
+namespace ConfigurationHelper
 {
     public class Helper
     {
