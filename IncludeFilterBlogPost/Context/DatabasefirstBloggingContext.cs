@@ -1,6 +1,9 @@
 ﻿
+using System.IO;
+using IncludeFilter.Classes;
 using IncludeFilter.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -25,7 +28,19 @@ namespace IncludeFilter.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=DatabaseFirst.Blogging;Integrated Security=True");
+                var builder = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json");
+
+                var config = builder.Build();
+                var applicationSettings = config.GetSection("database").Get<ApplicationSettings>();
+
+                var connectionString =
+                    $"Data Source={applicationSettings.DatabaseServer};" +
+                    $"Initial Catalog={applicationSettings.Catalog};" +
+                    "Integrated Security=True";
+
+                optionsBuilder.UseSqlServer(connectionString);
             }
         }
 
