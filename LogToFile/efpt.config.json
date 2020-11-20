@@ -1,0 +1,65 @@
+﻿{
+   "ContextClassName": "SchoolContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "Context",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "LogToFile",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Course]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CourseDay]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CourseInstructor]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Department]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[OfficeAssignment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[OnlineCourse]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[OnsiteCourse]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Person]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[StudentGrade]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[WeekDayName]"
+      }
+   ],
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseNodaTime": false,
+   "UseSpatial": false,
+   "UseStoredProcedures": false
+}
