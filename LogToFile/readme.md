@@ -8,6 +8,11 @@
 
 The following NuGet packages are needed for reading the project configuration file in the frontend project NoFrillsSelectCustomersWithAsSplitQuery.
 
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.FileExtensions
+- Microsoft.Extensions.Configuration.Json
+- Microsoft.Extensions.Configuration.Binder
+
 appsettings.json
 
 ```json
@@ -22,7 +27,3 @@ appsettings.json
 # Note
 Connection string is read from [ConfigurationHelper.Helper](https://github.com/karenpayneoregon/efcore5-getting-started/blob/master/ConfigurationHelper/Helper.cs) 
 
-- Microsoft.Extensions.Configuration
-- Microsoft.Extensions.Configuration.FileExtensions
-- Microsoft.Extensions.Configuration.Json
-- Microsoft.Extensions.Configuration.Binder
