@@ -8,7 +8,7 @@ namespace IncludeFilter
         {
             Setup();
 
-            Operations.FilterPost("Cheese");
+            Operations.FilterPost("Entity Framework");
             Console.WriteLine("Press the (any) key");
             Console.ReadLine();
 

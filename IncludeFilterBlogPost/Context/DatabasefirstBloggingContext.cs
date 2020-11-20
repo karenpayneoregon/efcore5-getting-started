@@ -52,16 +52,6 @@ namespace IncludeFilter.Context
                     .HasConstraintName("FK_dbo.Posts_dbo.Blogs_BlogId");
             });
 
-            //modelBuilder.Entity<Table1>(entity =>
-            //{
-            //    entity.ToTable("Table_1");
-
-            //    entity.Property(e => e.Id).HasColumnName("ID");
-
-            //    entity.Property(e => e.First)
-            //        .HasMaxLength(10)
-            //        .IsFixedLength(true);
-            //});
 
             OnModelCreatingPartial(modelBuilder);
         }
