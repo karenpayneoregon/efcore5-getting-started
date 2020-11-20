@@ -9,6 +9,7 @@ namespace ConfigurationHelper
         private static string _fileName = "appsettings.json";
         /// <summary>
         /// Connection string for application database stored in appsettings.json
+        /// Another option would be to have the full connection string in the json file.
         /// </summary>
         /// <returns></returns>
         public static string ConnectionString()
