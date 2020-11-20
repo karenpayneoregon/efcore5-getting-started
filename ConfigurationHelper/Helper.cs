@@ -39,6 +39,12 @@ namespace ConfigurationHelper
             return builder.Build();
 
         }
+        /// <summary>
+        /// Generic method to read a section from the json configuration file.
+        /// </summary>
+        /// <typeparam name="T">Class type</typeparam>
+        /// <param name="section">Section to read</param>
+        /// <returns>Instance of T</returns>
         public static T InitOptions<T>(string section) where T : new()
         {
             var config = InitConfig();
