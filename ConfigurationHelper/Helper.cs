@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
 
@@ -15,7 +16,7 @@ namespace ConfigurationHelper
         public static string ConnectionString()
         {
 
-            var config = InitConfiguration();
+            InitConfiguration();
             var applicationSettings = InitOptions<DatabaseSettings>("database");
 
             var connectionString =
@@ -25,6 +26,31 @@ namespace ConfigurationHelper
 
             return connectionString;
         }
+        /// <summary>
+        /// Example for retrieving settings in another section besides the above for database 
+        /// </summary>
+        /// <returns></returns>
+        public static ConfigurationGeneral Configuration()
+        {
+            InitConfiguration();
+            var settings = InitOptions<ConfigurationGeneral>("ConfigurationGeneral");
+
+            return settings;
+
+        }
+        /// <summary>
+        /// Sample for obtaining a list of <see cref="Keygroup"/> which in itself
+        /// is not used for anything, simply an example. 
+        /// </summary>
+        /// <returns></returns>
+        public static List<Keygroup> GetKeyGroups()
+        {
+            InitConfiguration();
+            var settings = InitOptions<List<Keygroup>>("keyGroups");
+
+            return settings;
+        }
+
         /// <summary>
         /// Initialize ConfigurationBuilder
         /// </summary>
