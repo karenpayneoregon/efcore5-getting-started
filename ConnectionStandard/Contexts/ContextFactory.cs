@@ -20,7 +20,26 @@ namespace ConnectionStandard.Contexts
         public static SchoolContext CreateDbContext(bool production = false)
         {
             _isProduction = production;
-            return CreateDbContext(null);
+
+            if (string.IsNullOrWhiteSpace(_connectionString))
+            {
+                if (production)
+                {
+                    LoadProductionConnectionString();
+                }
+                else
+                {
+                    LoadDevelopmentConnectionString();
+                }
+
+            }
+
+            var builder = new DbContextOptionsBuilder<SchoolContext>();
+            // ReSharper disable once AssignNullToNotNullAttribute
+            builder.UseSqlServer(_connectionString);
+
+            return new SchoolContext(builder.Options);
+
         }
 
         public static SchoolContext CreateDbContext(string[] args)
@@ -61,7 +80,6 @@ namespace ConnectionStandard.Contexts
             var configuration = builder.Build();
             return configuration;
         }
-
 
         SchoolContext IDesignTimeDbContextFactory<SchoolContext>.CreateDbContext(string[] args) => CreateDbContext(args);
     }
