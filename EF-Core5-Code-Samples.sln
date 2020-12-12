@@ -44,9 +44,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Oracle1", "Oracle1\Oracle1.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visual Basic Helpers", "Visual Basic Helpers", "{4A61312F-6F7B-478D-AF6A-F8BB5FD3CE62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scaffolding", "Scaffolding\Scaffolding.csproj", "{C51E2DBE-9EED-4B2E-A8E1-02BFA2A001C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scaffolding", "Scaffolding\Scaffolding.csproj", "{C51E2DBE-9EED-4B2E-A8E1-02BFA2A001C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExceptionHandling", "ExceptionHandling\ExceptionHandling.csproj", "{9DFD3A2C-EC02-4673-8C56-D6279F6AEF28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExceptionHandling", "ExceptionHandling\ExceptionHandling.csproj", "{9DFD3A2C-EC02-4673-8C56-D6279F6AEF28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoredProcedureInsertNewCategory", "StoredProcedureInsertNewCategory\StoredProcedureInsertNewCategory.csproj", "{87CE2ABF-2328-477A-BDDB-2FB96944054F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +112,10 @@ Global
 		{9DFD3A2C-EC02-4673-8C56-D6279F6AEF28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DFD3A2C-EC02-4673-8C56-D6279F6AEF28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DFD3A2C-EC02-4673-8C56-D6279F6AEF28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87CE2ABF-2328-477A-BDDB-2FB96944054F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87CE2ABF-2328-477A-BDDB-2FB96944054F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87CE2ABF-2328-477A-BDDB-2FB96944054F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87CE2ABF-2328-477A-BDDB-2FB96944054F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -131,6 +137,7 @@ Global
 		{0F27D565-3ED1-448C-BBF7-14F3043ADBED} = {8A62BC9F-A245-454C-8B1C-1CD632EBD16A}
 		{C51E2DBE-9EED-4B2E-A8E1-02BFA2A001C5} = {4A61312F-6F7B-478D-AF6A-F8BB5FD3CE62}
 		{9DFD3A2C-EC02-4673-8C56-D6279F6AEF28} = {FC861BB8-6D8F-4D68-8AAF-49042E17A099}
+		{87CE2ABF-2328-477A-BDDB-2FB96944054F} = {4EB38B6B-076D-4E70-874D-D8D6347B1042}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A2F5BFA-D199-4113-926C-E74F9AEAAA7C}
