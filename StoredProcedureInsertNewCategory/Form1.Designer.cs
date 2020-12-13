@@ -36,9 +36,9 @@ namespace StoredProcedureInsertNewCategory
             // 
             this.NewCategoryButton.Location = new System.Drawing.Point(24, 22);
             this.NewCategoryButton.Name = "NewCategoryButton";
-            this.NewCategoryButton.Size = new System.Drawing.Size(75, 23);
+            this.NewCategoryButton.Size = new System.Drawing.Size(238, 23);
             this.NewCategoryButton.TabIndex = 0;
-            this.NewCategoryButton.Text = "button1";
+            this.NewCategoryButton.Text = "Perform single insert";
             this.NewCategoryButton.UseVisualStyleBackColor = true;
             this.NewCategoryButton.Click += new System.EventHandler(this.NewCategoryButton_Click);
             // 
@@ -46,8 +46,9 @@ namespace StoredProcedureInsertNewCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 95);
+            this.ClientSize = new System.Drawing.Size(290, 66);
             this.Controls.Add(this.NewCategoryButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Insert stored procedure";

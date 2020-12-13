@@ -12,8 +12,13 @@ namespace ExceptionHandling
         /// Common exceptions
         /// </summary>
         General,
-        Unknown,
+        /// <summary>
+        /// Database exceptions
+        /// </summary>
         Data,
-        Post
+        /// <summary>
+        /// File operation exceptions
+        /// </summary>
+        File
     }
 }
