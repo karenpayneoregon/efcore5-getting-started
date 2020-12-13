@@ -27,6 +27,16 @@ namespace ConfigurationHelper
 
             return connectionString;
         }
+
+        public static bool UseLogging()
+        {
+            InitConfiguration();
+            var applicationSettings = InitOptions<ApplicationSettings>("database");
+
+            return applicationSettings.UsingLogging;
+
+        }
+
         /// <summary>
         /// Combination of settings
         /// </summary>

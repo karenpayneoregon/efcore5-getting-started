@@ -1,4 +1,4 @@
-﻿namespace NorthEntityLibrary.Classes
+﻿namespace ConfigurationHelper
 {
     public class ApplicationSettings
     {

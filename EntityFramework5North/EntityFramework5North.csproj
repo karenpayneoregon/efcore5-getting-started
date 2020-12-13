@@ -15,4 +15,8 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConfigurationHelper\ConfigurationHelper.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using ConfigurationHelper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
@@ -52,28 +53,16 @@ namespace NorthEntityLibrary.Contexts
             if (!optionsBuilder.IsConfigured)
             {
 
-                var builder = new ConfigurationBuilder()
-                    .SetBasePath(Directory.GetCurrentDirectory())
-                    .AddJsonFile("appsettings.json");
-
-                var config = builder.Build();
-                var applicationSettings = config.GetSection("database").Get<ApplicationSettings>();
-
-                var connectionString =
-                    $"Data Source={applicationSettings.DatabaseServer};" +
-                    $"Initial Catalog={applicationSettings.Catalog};" +
-                    "Integrated Security=True";
-
-                if (applicationSettings.UsingLogging)
+                if (Helper.UseLogging())
                 {
-                    optionsBuilder.UseSqlServer(connectionString)
+                    optionsBuilder.UseSqlServer(Helper.ConnectionString())
                         .EnableSensitiveDataLogging()
                         .EnableDetailedErrors()
                         .LogTo(_logStream.WriteLine);
                 }
                 else
                 {
-                    optionsBuilder.UseSqlServer(connectionString);
+                    optionsBuilder.UseSqlServer(Helper.ConnectionString());
                 }
 
             }
