@@ -2,6 +2,8 @@
 
 Basic template/code sample for inserting a new record using Entity Framework Core 5 using the stored procedure below.
 
+[Microsoft TechNet article](https://social.technet.microsoft.com/wiki/contents/articles/54154.ef-core-5-stored-procedures-net-5-c.aspx)
+
 ### Important
 
 * The parameter for returning the new primary key 
