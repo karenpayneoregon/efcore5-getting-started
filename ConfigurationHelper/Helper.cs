@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace ConfigurationHelper
 {
@@ -27,17 +28,34 @@ namespace ConfigurationHelper
             return connectionString;
         }
         /// <summary>
-        /// Example for retrieving settings in another section besides the above for database 
+        /// Combination of settings
         /// </summary>
         /// <returns></returns>
-        public static ConfigurationGeneral Configuration()
+        public static GeneralSettings Configuration()
         {
             InitConfiguration();
-            var settings = InitOptions<ConfigurationGeneral>("ConfigurationGeneral");
-
-            return settings;
-
+            
+            return InitOptions<GeneralSettings>("GeneralSettings");
         }
+        /// <summary>
+        /// Update email settings
+        /// </summary>
+        /// <param name="emailSettings">New settings</param>
+        public static void UpdateEmail(EmailSettings emailSettings)
+        {
+            var generalSettings = Configuration();
+
+            generalSettings.EmailSettings.Host = emailSettings.Host;
+            generalSettings.EmailSettings.Port = emailSettings.Port;
+            generalSettings.EmailSettings.DefaultCredentials = emailSettings.DefaultCredentials;
+            generalSettings.EmailSettings.EnableSsl = emailSettings.EnableSsl;
+            generalSettings.EmailSettings.PickupDirectoryLocation = emailSettings.PickupDirectoryLocation;
+
+
+            string output = JsonConvert.SerializeObject(generalSettings, Formatting.Indented);
+            File.WriteAllText(_fileName, output);
+        }
+
         /// <summary>
         /// Sample for obtaining a list of <see cref="Keygroup"/> which in itself
         /// is not used for anything, simply an example. 

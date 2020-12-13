@@ -7,6 +7,7 @@ namespace ConfigurationHelper
     public class ConfigurationGeneral
     {
         public string IncomingFolder { get; set; }
-        public bool TestMode { get; set; }
+        public bool LogExceptions { get; set; }
+        public DatabaseSettings DatabaseSettings { get; set; }
     }
 }

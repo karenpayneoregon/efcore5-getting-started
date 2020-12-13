@@ -1,4 +1,4 @@
-﻿namespace ConfigurationHelper
+﻿namespace JsonCreation
 {
     /// <summary>
     /// Properties for setting up a connection string
@@ -9,10 +9,6 @@
         public string Catalog { get; set; }
         public bool IntegratedSecurity { get; set; }
         public bool UsingLogging { get; set; }
-        public string ConnectionString => $"Data Source={DatabaseServer};" +
-                                          $"Initial Catalog={Catalog};" +
-                                          $"Integrated Security={IntegratedSecurity}";
-
     }
 
 }
