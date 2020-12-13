@@ -24,8 +24,8 @@ namespace Oracle1.Context
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseOracle("DATA SOURCE=aix-aixdev.emp.state.or.us:1521/DEV.EMP.STATE.OR.US;PASSWORD=ocsdog;PERSIST SECURITY INFO=True;USER ID=OCS");
+
+                optionsBuilder.UseOracle("DATA SOURCE=aix-aixdev.emp.state.or.us:1521/DEV.EMP.STATE.OR.US;PASSWORD=;PERSIST SECURITY INFO=True;USER ID=");
             }
         }
 
