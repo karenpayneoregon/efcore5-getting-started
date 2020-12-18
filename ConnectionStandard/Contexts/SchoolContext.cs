@@ -18,8 +18,7 @@ namespace ConnectionStandard.Contexts
         {
         }
 
-        public SchoolContext(DbContextOptions<SchoolContext> options)
-            : base(options)
+        public SchoolContext(DbContextOptions<SchoolContext> options) : base(options)
         {
         }
 

@@ -37,6 +37,8 @@ namespace ConnectionStandard.Contexts
             var builder = new DbContextOptionsBuilder<SchoolContext>();
             // ReSharper disable once AssignNullToNotNullAttribute
             builder.UseSqlServer(_connectionString);
+            
+            
 
             return new SchoolContext(builder.Options);
 
