@@ -18,7 +18,7 @@ namespace ConnectionStandard
             await Example1A();
 
             //Example2();
-
+            
             Console.ReadLine();
         }
 
