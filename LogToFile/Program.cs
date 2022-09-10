@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using LogToFile.Classes;
+using LogToFile.Extensions;
+using LogToFile.Models;
 
 namespace LogToFile
 {
@@ -8,14 +12,20 @@ namespace LogToFile
     {
         static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            var people = await Operations.PeopleTask();
 
-            foreach (var person in people)
-            {
-                Console.WriteLine(person.FullName);
-            }
-            Console.ReadLine();
+            //var people = await Operations.PeopleTask();
+
+            await Operations.DemonstrationLoggingTask();
+            
+            //foreach (var person in people)
+            //{
+            //    Console.WriteLine(person.FullName);
+            //}
+
+
+
+            //people.ModeListToJson("people.json");
+            //Console.ReadLine();
         }
     }
 }

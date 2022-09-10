@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30523.141
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Class projects", "Class projects", "{FC861BB8-6D8F-4D68-8AAF-49042E17A099}"
 EndProject
@@ -54,6 +54,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonCreation", "JsonCreation\JsonCreation.csproj", "{B34434A1-8A07-4C6F-A31A-9C660CE5FC87}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppsettingsUnitTest", "AppSettingsUnitTest\AppsettingsUnitTest.csproj", "{F1736412-7F5C-4FD5-9918-0C1694D1082C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{3B84A2D0-832B-45C1-AF69-5ACD68E6EBDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -125,6 +127,10 @@ Global
 		{F1736412-7F5C-4FD5-9918-0C1694D1082C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1736412-7F5C-4FD5-9918-0C1694D1082C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1736412-7F5C-4FD5-9918-0C1694D1082C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B84A2D0-832B-45C1-AF69-5ACD68E6EBDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B84A2D0-832B-45C1-AF69-5ACD68E6EBDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B84A2D0-832B-45C1-AF69-5ACD68E6EBDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B84A2D0-832B-45C1-AF69-5ACD68E6EBDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

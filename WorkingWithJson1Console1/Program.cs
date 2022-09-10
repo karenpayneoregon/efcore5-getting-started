@@ -11,18 +11,18 @@ namespace WorkingWithJson1Console1
         static void Main(string[] args)
         {
             //Operations.Add();
-            //var personJsonAddresses = Operations.GetPersons().FirstOrDefault()?.AddressJson;
+            var personJsonAddresses = Operations.GetPersons().FirstOrDefault()?.AddressJson;
             //var addresses = person?.Addresses;
-            //Console.WriteLine(personJsonAddresses);
+            Console.WriteLine(personJsonAddresses);
 
-            Sample.Instance.People.Add(new Person() {FirstName = "Karen", LastName = "Payne"});
+            //Sample.Instance.People.Add(new Person() {FirstName = "Karen", LastName = "Payne"});
             
-            Console.WriteLine(Sample.Instance.People.Count);
+            //Console.WriteLine(Sample.Instance.People.Count);
 
-            foreach (var person in Sample.Instance.People)
-            {
-                Console.WriteLine($"{person.FirstName} {person.LastName}");
-            }
+            //foreach (var person in Sample.Instance.People)
+            //{
+            //    Console.WriteLine($"{person.FirstName} {person.LastName}");
+            //}
             Console.ReadLine();
         }
     }

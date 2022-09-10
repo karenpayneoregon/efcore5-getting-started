@@ -35,9 +35,12 @@ namespace IncludeFilter.Context
         {
             modelBuilder.Entity<Blog>(entity =>
             {
-                entity.Property(e => e.Name).HasMaxLength(200);
+                entity.Property(e => e.BlogId).HasMaxLength(200).HasComment("Blog identifier");
+                entity.Property(e => e.Name).HasMaxLength(200).HasComment("Blog name");
+                entity.Property(e => e.Title).HasMaxLength(200).HasComment("Blog Title");
 
-                entity.Property(e => e.Url).HasMaxLength(200);
+                entity.Property(e => e.Url).HasMaxLength(200).HasComment("Web address");
+                entity.Property(e => e.DateModified).HasComment("Modified");
             });
 
             modelBuilder.Entity<Post>(entity =>
@@ -55,7 +58,7 @@ namespace IncludeFilter.Context
             });
 
 
-            OnModelCreatingPartial(modelBuilder);
+            //OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

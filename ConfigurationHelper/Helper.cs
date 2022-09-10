@@ -18,6 +18,7 @@ namespace ConfigurationHelper
         {
 
             InitConfiguration();
+            
             var applicationSettings = InitOptions<DatabaseSettings>("database");
 
             var connectionString =
@@ -27,7 +28,29 @@ namespace ConfigurationHelper
 
             return connectionString;
         }
+        /// <summary>
+        /// Log options
+        /// </summary>
+        /// <returns></returns>
+        public static LoggingDistination LoggingDistination()
+        {
+            InitConfiguration();
 
+            var applicationSettings = InitOptions<DatabaseSettings>("database");
+            return applicationSettings.LoggingDistination;
+        }
+        /// <summary>
+        /// Log file name
+        /// </summary>
+        /// <returns></returns>
+        public static string LogFileName()
+        {
+            InitConfiguration();
+
+            var applicationSettings = InitOptions<DatabaseSettings>("database");
+            return applicationSettings.LogFileName;
+            
+        }
         public static bool UseLogging()
         {
             InitConfiguration();

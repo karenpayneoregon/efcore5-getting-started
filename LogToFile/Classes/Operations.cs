@@ -21,11 +21,19 @@ namespace LogToFile.Classes
                     .People
                     .Include(person => person.StudentGrades)
                     .ThenInclude(person => person.Course)
+                    .Where(x => x.PersonID == 1)
                     .ToListAsync();
 
                 return results.OrderBy(person => person.LastName).ToList();
 
             });
+
+        }
+
+        public static async Task DemonstrationLoggingTask()
+        {
+            await using var context = new SchoolContext();
+            await context.People.FirstOrDefaultAsync();
 
         }
     }

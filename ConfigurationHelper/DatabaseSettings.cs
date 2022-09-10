@@ -9,10 +9,12 @@
         public string Catalog { get; set; }
         public bool IntegratedSecurity { get; set; }
         public bool UsingLogging { get; set; }
+        public LoggingDistination LoggingDistination { get; set; }
+        public string LogFileName { get; set; }
+        
         public string ConnectionString => $"Data Source={DatabaseServer};" +
                                           $"Initial Catalog={Catalog};" +
                                           $"Integrated Security={IntegratedSecurity}";
 
     }
-
 }

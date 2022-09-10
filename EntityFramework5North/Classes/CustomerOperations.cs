@@ -8,6 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NorthEntityLibrary.Contexts;
 using NorthEntityLibrary.Models;
 
@@ -44,6 +45,12 @@ namespace NorthEntityLibrary.Classes
 
                 return customerItemsList.OrderBy((customer) => customer.CompanyName).ToList();
             });
+        }
+
+        public static void TheTest()
+        {
+            using var context = new NorthwindContext();
+
         }
         /// <summary>
         /// Customize customer query

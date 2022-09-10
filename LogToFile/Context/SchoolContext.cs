@@ -1,11 +1,14 @@
 ﻿
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 using ConfigurationHelper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using LogToFile.Models;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Logging;
 
 #nullable disable
 
@@ -33,20 +36,24 @@ namespace LogToFile.Context
         public virtual DbSet<StudentGrade> StudentGrades { get; set; }
         public virtual DbSet<WeekDayName> WeekDayNames { get; set; }
 
-        /// <summary>
-        /// For logging to file via .LogTo
-        /// </summary>
-        private readonly StreamWriter _logStream = new StreamWriter("ef-log.txt", append: true);
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-
-                optionsBuilder.UseSqlServer(Helper.ConnectionString())
-                    .EnableSensitiveDataLogging()
-                    .EnableDetailedErrors()
-                    .LogTo(_logStream.WriteLine);
-
+                switch (Helper.LoggingDistination())
+                {
+                    case LoggingDistination.DebugWindow:
+                        LogQueryInfoToDebugOutputWindow(optionsBuilder);
+                        break;
+                    case LoggingDistination.LogFile:
+                        LogQueryInfoToFile(optionsBuilder);
+                        break;
+                    case LoggingDistination.None:
+                        NoLogging(optionsBuilder);
+                        break;
+                    default: throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
@@ -68,18 +75,6 @@ namespace LogToFile.Context
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-        #region Takes care of disposing stream used for logging
-        public override void Dispose()
-        {
-            base.Dispose();
-            _logStream.Dispose();
-        }
 
-        public override async ValueTask DisposeAsync()
-        {
-            await base.DisposeAsync();
-            await _logStream.DisposeAsync();
-        }
-        #endregion
     }
 }

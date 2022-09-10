@@ -1,4 +1,7 @@
-﻿using System;
+﻿using IncludeFilter.Context;
+using System;
+using IncludeFilter.Classes;
+using IncludeFilter.Models;
 
 namespace IncludeFilter
 {
@@ -7,6 +10,11 @@ namespace IncludeFilter
         static void Main(string[] args)
         {
             Setup();
+
+            using (var context = new DatabasefirstBloggingContext())
+            {
+                var comments = context.Comments(typeof(Blog));
+            }
 
             Operations.FilterPost("Entity Framework");
             Console.WriteLine("Press the (any) key");
